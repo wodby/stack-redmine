@@ -1,0 +1,46 @@
+name: redmine
+icon: redmine
+title: Redmine
+category: collaboration
+
+services:
+- name: redmine
+  title: Redmine
+  service: redmine
+  required: true
+  main: true
+  volumes:
+  - name: files
+    size: 20
+  links:
+  - name: db
+    service: postgres
+  - name: files
+    service: files-nfs
+  - name: sendmail
+    service: opensmtpd
+
+- name: postgres
+  title: PostgreSQL
+  service: postgres
+  required: true
+  volumes:
+  - name: data
+    size: 10
+
+# Attachments, shared by every Redmine replica.
+- name: files-nfs
+  title: Redmine attachments NFS storage
+  service: nfs-provisioner
+  required: true
+  volumes:
+  - name: data
+    size: 25
+
+# Redmine can also send email through an SMTP server set with SMTP_*
+# environment variables.
+- name: opensmtpd
+  title: OpenSMTPD
+  service: opensmtpd
+  required: false
+  disabled: true
