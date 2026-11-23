@@ -9,7 +9,9 @@ composition for Redmine.
 
 ## Stack contract
 
+- [Redmine stack on Wodby](https://wodby.com/stacks/redmine)
 - [Browse Wodby application stacks](https://wodby.com/stacks)
+- [Redmine stack guide](https://wodby.com/docs/2.0/stacks/catalog/redmine/)
 - [Wodby stack documentation](https://wodby.com/docs/2.0/stacks/)
 - [Stack manifest reference](https://wodby.com/docs/2.0/stacks/template/)
 
@@ -17,14 +19,14 @@ composition for Redmine.
 
 - [Redmine service](https://github.com/wodby/service-redmine)
 - [PostgreSQL service](https://github.com/wodby/service-postgres)
-- [NFS provisioner service](https://github.com/wodby/service-nfs-provisioner)
+- [Ganesha NFS provisioner service](https://github.com/wodby/service-nfs-provisioner)
 - [OpenSMTPD service](https://github.com/wodby/service-opensmtpd)
 
 ## What's included
 
 | Component / service | Default configuration |
 | --- | --- |
-| Redmine<br>`redmine` | required; enabled by default; main; volumes: `files` 20 GB; links: `db` → `postgres`, `files` → `files-nfs`, `sendmail` → `opensmtpd` |
+| Redmine<br>`redmine` | required; enabled by default; volumes: `files` 20 GB; links: `db` → `postgres`, `files` → `files-nfs`, `sendmail` → `opensmtpd` |
 | PostgreSQL<br>`postgres` | required; enabled by default; volumes: `data` 10 GB |
 | Redmine attachments NFS storage<br>`files-nfs` | required; enabled by default; volumes: `data` 25 GB |
 | OpenSMTPD<br>`opensmtpd` | optional; disabled by default |
